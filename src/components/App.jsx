@@ -59,7 +59,20 @@ export const App = () => {
 
   useEffect(() => {
     if (searchTerm) {
-      fetchImages();
+      const fetchMoreImages = async () => {
+        setIsLoading(true);
+        if (page === 1) {
+          // Zerowanie stanu images tylko przy wyszukiwaniu nowych zdjęć
+          setImages([]);
+        }
+        const response = await fetch(
+          `https://pixabay.com/api/?key=${'32295934-1722a349e231221c1d2235015'}&q=${searchTerm}&page=${page}`
+        );
+        const data = await response.json();
+        setImages([...images, ...data.hits]); // Dodawanie nowych zdjęć do listy
+        setIsLoading(false);
+      };
+      fetchMoreImages();
     }
   }, [page]);
 
