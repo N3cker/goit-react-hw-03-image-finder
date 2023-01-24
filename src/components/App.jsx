@@ -78,7 +78,9 @@ export const App = () => {
     if (searchTerm) {
       fetchImages();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+
   return (
     <div
       style={{
