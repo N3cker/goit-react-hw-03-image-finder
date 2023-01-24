@@ -17,7 +17,7 @@ export const App = () => {
   const fetchImages = async () => {
     setIsLoading(true);
 
-    // Zerowanie stanu images tylko przy wyszukiwaniu nowych zdjęć i ustawieniu strony na 1. W przeciwnym razie dodaje nowe obrazy do listy.
+    // Zerowanie stanu images tylko przy wyszukiwaniu nowych zdjęć i ustawieniu strony na 1. W przeciwnym razie dodaje nowe obrazy do listy..
     if (page === 1) {
       setImages([]);
     } else {
